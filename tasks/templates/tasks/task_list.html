@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>My Tasks</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        <input 
+            type="text"
+            name="title"
+            placeholder="Ingresa una nueva tarea"
+        >
+
+        <button type="submit">Agregar Tarea </button>
+
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
